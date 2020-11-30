@@ -51,4 +51,32 @@ Scrape one of the competitor websites of canyon (either https://www.rosebikes.de
 ```
 
 
-When you knit this R Markdown document, you will see that the histogram is printed to the page, along with the R code. This document can be set up to hide the R code in the webpage, just delete the comment (hashtag) from the cold folding option in the yaml header up top. For purposes of letting yourself see the code, and me see the code, best to keep it the way that it is. You'll learn that all of these things and more can be customized in each R code block.
+# Data Wrangling
+
+## Challenge 1
+Patent Dominance: What US company / corporation has the most patents? List the 10 US companies with the most assigned/granted patents.
+
+## Challenge 2
+
+Recent patent acitivity: What US company had the most patents granted in 2019? List the top 10 companies with the most new granted patents for 2019.
+
+## Challenge 3
+
+Innovation in Tech: What is the most innovative tech sector? For the top 10 companies (worldwide) with the most patents, what are the top 5 USPTO tech main classes?
+
+## Adding the Code
+
+```{r, code=readLines("Data_wrangling_exercise_data.R")}
+```
+
+
+# Data Visualization
+
+## Challenge 1
+Map the time course of the cumulative Covid-19 cases!
+
+## Challenge 2
+
+Visualize the distribution of the mortality rate (deaths / population) with geom_map(). 
+
+## Adding the Code
