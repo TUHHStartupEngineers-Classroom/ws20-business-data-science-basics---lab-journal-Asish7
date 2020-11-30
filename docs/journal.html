@@ -567,492 +567,65 @@ Sys.setenv(SPOTIFY_CLIENT_SECRET = &#39;307841367f1c4457baea58d6bf6584ff&#39;)
 
 access_token &lt;- get_spotify_access_token()
 
-beatles &lt;- get_artist_audio_features(&#39;the beatles&#39;)%&gt;% 
-  head(30)
+beatles &lt;- get_artist_audio_features(&#39;the beatles&#39;)%&gt;%
+  select(artist_name,artist_id, album_id,album_type, album_release_date, album_release_year, album_release_date_precision, danceability,artists ,track_uri,external_urls.spotify , album_name, key_name, mode_name ,key_mode)%&gt;%
+  head(5)
 
 beatles</code></pre>
-<pre><code>##    artist_name              artist_id               album_id album_type
-## 1  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 2  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 3  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 4  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 5  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 6  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 7  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 8  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 9  The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 10 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 11 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 12 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 13 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 14 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 15 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 16 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 17 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 18 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 19 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 20 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 21 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 22 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 23 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 24 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 25 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 26 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 27 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 28 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 29 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-## 30 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
-##                                                                                                                                                                                                                        album_images
-## 1  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 2  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 3  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 4  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 5  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 6  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 7  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 8  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 9  640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 10 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 11 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 12 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 13 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 14 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 15 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 16 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 17 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 18 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 19 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 20 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 21 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 22 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 23 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 24 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 25 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 26 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 27 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 28 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 29 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-## 30 640, 300, 64, https://i.scdn.co/image/ab67616d0000b2739daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d00001e029daf50d073fd6e7ad9bc0076, https://i.scdn.co/image/ab67616d000048519daf50d073fd6e7ad9bc0076, 640, 300, 64
-##    album_release_date album_release_year album_release_date_precision
-## 1          2018-11-09               2018                          day
-## 2          2018-11-09               2018                          day
-## 3          2018-11-09               2018                          day
-## 4          2018-11-09               2018                          day
-## 5          2018-11-09               2018                          day
-## 6          2018-11-09               2018                          day
-## 7          2018-11-09               2018                          day
-## 8          2018-11-09               2018                          day
-## 9          2018-11-09               2018                          day
-## 10         2018-11-09               2018                          day
-## 11         2018-11-09               2018                          day
-## 12         2018-11-09               2018                          day
-## 13         2018-11-09               2018                          day
-## 14         2018-11-09               2018                          day
-## 15         2018-11-09               2018                          day
-## 16         2018-11-09               2018                          day
-## 17         2018-11-09               2018                          day
-## 18         2018-11-09               2018                          day
-## 19         2018-11-09               2018                          day
-## 20         2018-11-09               2018                          day
-## 21         2018-11-09               2018                          day
-## 22         2018-11-09               2018                          day
-## 23         2018-11-09               2018                          day
-## 24         2018-11-09               2018                          day
-## 25         2018-11-09               2018                          day
-## 26         2018-11-09               2018                          day
-## 27         2018-11-09               2018                          day
-## 28         2018-11-09               2018                          day
-## 29         2018-11-09               2018                          day
-## 30         2018-11-09               2018                          day
-##    danceability energy key loudness mode speechiness acousticness
-## 1         0.510  0.893   9   -9.267    1      0.0342     1.02e-03
-## 2         0.395  0.538   2  -10.300    1      0.0456     9.04e-02
-## 3         0.529  0.555   7   -8.839    0      0.0508     2.36e-03
-## 4         0.803  0.776  10   -7.561    1      0.0333     1.49e-01
-## 5         0.749  0.689   9  -10.883    0      0.0346     2.78e-01
-## 6         0.659  0.560   0   -9.561    1      0.0648     2.95e-01
-## 7         0.421  0.668   2   -9.234    1      0.0364     1.96e-03
-## 8         0.461  0.534   9   -9.912    0      0.0592     1.31e-01
-## 9         0.641  0.328  10  -10.709    1      0.0313     7.88e-01
-## 10        0.440  0.485   9  -10.989    1      0.2800     4.96e-01
-## 11        0.649  0.123   7  -15.657    1      0.0396     8.25e-01
-## 12        0.527  0.471   8   -9.901    1      0.0314     2.00e-01
-## 13        0.543  0.429   7  -10.249    1      0.0397     4.24e-01
-## 14        0.598  0.580   0   -8.082    1      0.0262     4.72e-01
-## 15        0.532  0.524   7   -8.057    1      0.0545     4.93e-01
-## 16        0.621  0.348   5  -12.808    1      0.0251     6.61e-01
-## 17        0.399  0.091   2  -15.499    1      0.0314     8.49e-01
-## 18        0.587  0.662   2   -8.056    1      0.0398     2.27e-05
-## 19        0.328  0.608   4   -9.170    1      0.0467     6.52e-04
-## 20        0.564  0.197   2  -16.103    1      0.0255     6.14e-01
-## 21        0.503  0.775   2   -6.719    1      0.0683     4.45e-03
-## 22        0.483  0.546   7   -9.039    1      0.0299     2.79e-01
-## 23        0.220  0.884   4   -7.210    1      0.0913     2.18e-04
-## 24        0.337  0.230   5  -11.589    1      0.0282     3.50e-01
-## 25        0.370  0.674   9   -8.390    1      0.0411     9.74e-02
-## 26        0.592  0.357   7  -11.976    1      0.0622     8.93e-01
-## 27        0.630  0.616  11   -7.972    0      0.0504     9.38e-03
-## 28        0.481  0.475   0  -11.762    1      0.0264     1.29e-01
-## 29        0.193  0.706   9  -12.392    0      0.3690     7.75e-01
-## 30        0.131  0.343   7  -15.122    1      0.0349     8.88e-01
-##    instrumentalness liveness valence   tempo               track_id
-## 1          5.85e-05   0.2010   0.934 142.657 183Klch3PBWLz2S6zNUVxR
-## 2          4.53e-04   0.0685   0.369 150.785 21pC0RPgkThjHlwpmCtxGb
-## 3          3.00e-03   0.0930   0.615 120.356 0bYmYFbEAADKAlHdJqZ1gL
-## 4          4.71e-03   0.2220   0.969 113.193 02FJNRUlB28e1F0R9uP2s1
-## 5          7.59e-01   0.7960   0.299  89.897 76YBf6AwWhPG62H2LZftFQ
-## 6          0.00e+00   0.6830   0.738 114.796 7KXaC0HCD4VoIZOzWfdirZ
-## 7          1.72e-02   0.3070   0.635 115.124 0ZqSsO2xoVvcrhpiRuqCmt
-## 8          5.63e-06   0.1070   0.459 138.935 3z2ngCk1Us5E0DtNGczXwJ
-## 9          7.77e-05   0.1570   0.858  89.212 4BtpBz9IIamSuYJ26Qoi8G
-## 10         1.11e-05   0.5080   0.717  69.925 52efrg776bHRucNKHRWwkE
-## 11         3.14e-06   0.0627   0.358  93.820 2oMVSmJx1l2FVXjVbx5DTc
-## 12         0.00e+00   0.0981   0.571  92.583 1koFbbNy8BJvG63B0ExZEQ
-## 13         0.00e+00   0.2500   0.638  78.943 2MdBcgXwYcuXN3ekvhehN0
-## 14         1.07e-06   0.2480   0.961  84.995 55scbyvCEL0prcaDKYqiRG
-## 15         8.68e-06   0.0601   0.845 188.181 6CD4ZmCgYyiECTOWjm5LqC
-## 16         2.94e-04   0.0899   0.900 103.123 5ZgypEwT8Mayum8GKG1KlG
-## 17         1.05e-04   0.1060   0.185 134.702 2fS3WRUilBxRoFMk3HVaoW
-## 18         1.65e-01   0.1940   0.964 139.374 1LT1LaG2hOR8VB2zzMcDjL
-## 19         2.16e-01   0.0948   0.480 104.258 6s16hVzIWDpv8w4BMCaZdw
-## 20         2.08e-01   0.2710   0.473  84.761 07SnYttUopjIFHnc1hZIMc
-## 21         5.31e-05   0.0554   0.738 117.153 4pBM26oKtRWYK2UbYD4OlJ
-## 22         1.13e-03   0.1980   0.732 149.620 6jQYMZNNNFOljhzo65MBL3
-## 23         1.41e-01   0.8280   0.248 167.748 0gPVEAjbO8oQyCEVE6oudx
-## 24         1.39e-01   0.1030   0.106 104.767 4eQVJHK0O5LctXPzsRj9LI
-## 25         2.96e-04   0.4270   0.583  98.997 7sfE6KbRUzH2VBOeDGUsie
-## 26         4.96e-05   0.1360   0.489 144.060 4zLY4SsBmfFo3gsk6GCjUM
-## 27         9.62e-03   0.0792   0.912 120.922 2pymXFmRFGQ5b0ZXYRdxjn
-## 28         2.09e-02   0.1960   0.489  76.795 32RwqKbqyzi7NJ11NBbOlN
-## 29         9.08e-02   0.7820   0.119  82.224 6FQkfaghoLt72rLmhsAqFy
-## 30         3.83e-01   0.1070   0.137  95.082 2PWnAe9C52xvJYhBFNuIqm
-##                                                        analysis_url
-## 1  https://api.spotify.com/v1/audio-analysis/183Klch3PBWLz2S6zNUVxR
-## 2  https://api.spotify.com/v1/audio-analysis/21pC0RPgkThjHlwpmCtxGb
-## 3  https://api.spotify.com/v1/audio-analysis/0bYmYFbEAADKAlHdJqZ1gL
-## 4  https://api.spotify.com/v1/audio-analysis/02FJNRUlB28e1F0R9uP2s1
-## 5  https://api.spotify.com/v1/audio-analysis/76YBf6AwWhPG62H2LZftFQ
-## 6  https://api.spotify.com/v1/audio-analysis/7KXaC0HCD4VoIZOzWfdirZ
-## 7  https://api.spotify.com/v1/audio-analysis/0ZqSsO2xoVvcrhpiRuqCmt
-## 8  https://api.spotify.com/v1/audio-analysis/3z2ngCk1Us5E0DtNGczXwJ
-## 9  https://api.spotify.com/v1/audio-analysis/4BtpBz9IIamSuYJ26Qoi8G
-## 10 https://api.spotify.com/v1/audio-analysis/52efrg776bHRucNKHRWwkE
-## 11 https://api.spotify.com/v1/audio-analysis/2oMVSmJx1l2FVXjVbx5DTc
-## 12 https://api.spotify.com/v1/audio-analysis/1koFbbNy8BJvG63B0ExZEQ
-## 13 https://api.spotify.com/v1/audio-analysis/2MdBcgXwYcuXN3ekvhehN0
-## 14 https://api.spotify.com/v1/audio-analysis/55scbyvCEL0prcaDKYqiRG
-## 15 https://api.spotify.com/v1/audio-analysis/6CD4ZmCgYyiECTOWjm5LqC
-## 16 https://api.spotify.com/v1/audio-analysis/5ZgypEwT8Mayum8GKG1KlG
-## 17 https://api.spotify.com/v1/audio-analysis/2fS3WRUilBxRoFMk3HVaoW
-## 18 https://api.spotify.com/v1/audio-analysis/1LT1LaG2hOR8VB2zzMcDjL
-## 19 https://api.spotify.com/v1/audio-analysis/6s16hVzIWDpv8w4BMCaZdw
-## 20 https://api.spotify.com/v1/audio-analysis/07SnYttUopjIFHnc1hZIMc
-## 21 https://api.spotify.com/v1/audio-analysis/4pBM26oKtRWYK2UbYD4OlJ
-## 22 https://api.spotify.com/v1/audio-analysis/6jQYMZNNNFOljhzo65MBL3
-## 23 https://api.spotify.com/v1/audio-analysis/0gPVEAjbO8oQyCEVE6oudx
-## 24 https://api.spotify.com/v1/audio-analysis/4eQVJHK0O5LctXPzsRj9LI
-## 25 https://api.spotify.com/v1/audio-analysis/7sfE6KbRUzH2VBOeDGUsie
-## 26 https://api.spotify.com/v1/audio-analysis/4zLY4SsBmfFo3gsk6GCjUM
-## 27 https://api.spotify.com/v1/audio-analysis/2pymXFmRFGQ5b0ZXYRdxjn
-## 28 https://api.spotify.com/v1/audio-analysis/32RwqKbqyzi7NJ11NBbOlN
-## 29 https://api.spotify.com/v1/audio-analysis/6FQkfaghoLt72rLmhsAqFy
-## 30 https://api.spotify.com/v1/audio-analysis/2PWnAe9C52xvJYhBFNuIqm
-##    time_signature
-## 1               4
-## 2               4
-## 3               4
-## 4               4
-## 5               4
-## 6               4
-## 7               4
-## 8               4
-## 9               4
-## 10              4
-## 11              4
-## 12              4
-## 13              4
-## 14              4
-## 15              4
-## 16              4
-## 17              4
-## 18              4
-## 19              4
-## 20              4
-## 21              4
-## 22              4
-## 23              4
-## 24              4
-## 25              4
-## 26              4
-## 27              3
-## 28              4
-## 29              4
-## 30              3
-##                                                                                                                                                                                                  artists
-## 1  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 2  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 3  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 4  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 5  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 6  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 7  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 8  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 9  https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 10 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 11 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 12 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 13 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 14 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 15 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 16 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 17 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 18 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 19 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 20 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 21 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 22 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 23 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 24 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 25 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 26 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 27 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 28 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 29 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-## 30 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
-##                                                                                                                                                                                                                                                                                                                                                                 available_markets
-## 1  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 2  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 3  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 4  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 5  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 6  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 7  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 8  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 9  AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 10 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 11 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 12 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 13 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 14 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 15 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 16 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 17 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 18 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 19 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 20 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 21 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 22 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 23 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 24 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 25 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 26 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 27 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 28 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 29 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-## 30 AD, AE, AL, AR, AT, AU, BA, BE, BG, BH, BO, BR, BY, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, KZ, LB, LI, LT, LU, LV, MA, MC, MD, ME, MK, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, RS, RU, SA, SE, SG, SI, SK, SV, TH, TN, TR, TW, UA, US, UY, VN, XK, ZA
-##    disc_number duration_ms explicit
-## 1            1      163466    FALSE
-## 2            1      234973    FALSE
-## 3            1      137706    FALSE
-## 4            1      188813    FALSE
-## 5            1       53000    FALSE
-## 6            1      194186    FALSE
-## 7            1      285280    FALSE
-## 8            1      164520    FALSE
-## 9            1      148480    FALSE
-## 10           1      123400    FALSE
-## 11           1      138360    FALSE
-## 12           1      124306    FALSE
-## 13           1      213080    FALSE
-## 14           1      230306    FALSE
-## 15           1      101733    FALSE
-## 16           1      105786    FALSE
-## 17           1      176133    FALSE
-## 18           2      161986    FALSE
-## 19           2      241000    FALSE
-## 20           2      167826    FALSE
-## 21           2      144653    FALSE
-## 22           2      195426    FALSE
-## 23           2      269773    FALSE
-## 24           2      186426    FALSE
-## 25           2      255653    FALSE
-## 26           2      161160    FALSE
-## 27           2      174440    FALSE
-## 28           2      181866    FALSE
-## 29           2      500853    FALSE
-## 30           2      195213    FALSE
-##                                                  track_href is_local
-## 1  https://api.spotify.com/v1/tracks/183Klch3PBWLz2S6zNUVxR    FALSE
-## 2  https://api.spotify.com/v1/tracks/21pC0RPgkThjHlwpmCtxGb    FALSE
-## 3  https://api.spotify.com/v1/tracks/0bYmYFbEAADKAlHdJqZ1gL    FALSE
-## 4  https://api.spotify.com/v1/tracks/02FJNRUlB28e1F0R9uP2s1    FALSE
-## 5  https://api.spotify.com/v1/tracks/76YBf6AwWhPG62H2LZftFQ    FALSE
-## 6  https://api.spotify.com/v1/tracks/7KXaC0HCD4VoIZOzWfdirZ    FALSE
-## 7  https://api.spotify.com/v1/tracks/0ZqSsO2xoVvcrhpiRuqCmt    FALSE
-## 8  https://api.spotify.com/v1/tracks/3z2ngCk1Us5E0DtNGczXwJ    FALSE
-## 9  https://api.spotify.com/v1/tracks/4BtpBz9IIamSuYJ26Qoi8G    FALSE
-## 10 https://api.spotify.com/v1/tracks/52efrg776bHRucNKHRWwkE    FALSE
-## 11 https://api.spotify.com/v1/tracks/2oMVSmJx1l2FVXjVbx5DTc    FALSE
-## 12 https://api.spotify.com/v1/tracks/1koFbbNy8BJvG63B0ExZEQ    FALSE
-## 13 https://api.spotify.com/v1/tracks/2MdBcgXwYcuXN3ekvhehN0    FALSE
-## 14 https://api.spotify.com/v1/tracks/55scbyvCEL0prcaDKYqiRG    FALSE
-## 15 https://api.spotify.com/v1/tracks/6CD4ZmCgYyiECTOWjm5LqC    FALSE
-## 16 https://api.spotify.com/v1/tracks/5ZgypEwT8Mayum8GKG1KlG    FALSE
-## 17 https://api.spotify.com/v1/tracks/2fS3WRUilBxRoFMk3HVaoW    FALSE
-## 18 https://api.spotify.com/v1/tracks/1LT1LaG2hOR8VB2zzMcDjL    FALSE
-## 19 https://api.spotify.com/v1/tracks/6s16hVzIWDpv8w4BMCaZdw    FALSE
-## 20 https://api.spotify.com/v1/tracks/07SnYttUopjIFHnc1hZIMc    FALSE
-## 21 https://api.spotify.com/v1/tracks/4pBM26oKtRWYK2UbYD4OlJ    FALSE
-## 22 https://api.spotify.com/v1/tracks/6jQYMZNNNFOljhzo65MBL3    FALSE
-## 23 https://api.spotify.com/v1/tracks/0gPVEAjbO8oQyCEVE6oudx    FALSE
-## 24 https://api.spotify.com/v1/tracks/4eQVJHK0O5LctXPzsRj9LI    FALSE
-## 25 https://api.spotify.com/v1/tracks/7sfE6KbRUzH2VBOeDGUsie    FALSE
-## 26 https://api.spotify.com/v1/tracks/4zLY4SsBmfFo3gsk6GCjUM    FALSE
-## 27 https://api.spotify.com/v1/tracks/2pymXFmRFGQ5b0ZXYRdxjn    FALSE
-## 28 https://api.spotify.com/v1/tracks/32RwqKbqyzi7NJ11NBbOlN    FALSE
-## 29 https://api.spotify.com/v1/tracks/6FQkfaghoLt72rLmhsAqFy    FALSE
-## 30 https://api.spotify.com/v1/tracks/2PWnAe9C52xvJYhBFNuIqm    FALSE
-##                                                              track_name
-## 1                                       Back In The U.S.S.R. - 2018 Mix
-## 2                                              Dear Prudence - 2018 Mix
-## 3                                                Glass Onion - 2018 Mix
-## 4                                         Ob-La-Di, Ob-La-Da - 2018 Mix
-## 5                                             Wild Honey Pie - 2018 Mix
-## 6                      The Continuing Story Of Bungalow Bill - 2018 Mix
-## 7                               While My Guitar Gently Weeps - 2018 Mix
-## 8                                    Happiness Is A Warm Gun - 2018 Mix
-## 9                                             Martha My Dear - 2018 Mix
-## 10                                              I&#39;m So Tired - 2018 Mix
-## 11                                                 Blackbird - 2018 Mix
-## 12                                                   Piggies - 2018 Mix
-## 13                                             Rocky Raccoon - 2018 Mix
-## 14                                          Don&#39;t Pass Me By - 2018 Mix
-## 15                           Why Don&#39;t We Do It In The Road? - 2018 Mix
-## 16                                                    I Will - 2018 Mix
-## 17                                                     Julia - 2018 Mix
-## 18                                                  Birthday - 2018 Mix
-## 19                                                 Yer Blues - 2018 Mix
-## 20                                       Mother Nature&#39;s Son - 2018 Mix
-## 21 Everybody&#39;s Got Something To Hide Except Me And My Monkey - 2018 Mix
-## 22                                                Sexy Sadie - 2018 Mix
-## 23                                            Helter Skelter - 2018 Mix
-## 24                                          Long, Long, Long - 2018 Mix
-## 25                                              Revolution 1 - 2018 Mix
-## 26                                                 Honey Pie - 2018 Mix
-## 27                                             Savoy Truffle - 2018 Mix
-## 28                                              Cry Baby Cry - 2018 Mix
-## 29                                              Revolution 9 - 2018 Mix
-## 30                                                Good Night - 2018 Mix
-##    track_preview_url track_number  type                            track_uri
-## 1                 NA            1 track spotify:track:183Klch3PBWLz2S6zNUVxR
-## 2                 NA            2 track spotify:track:21pC0RPgkThjHlwpmCtxGb
-## 3                 NA            3 track spotify:track:0bYmYFbEAADKAlHdJqZ1gL
-## 4                 NA            4 track spotify:track:02FJNRUlB28e1F0R9uP2s1
-## 5                 NA            5 track spotify:track:76YBf6AwWhPG62H2LZftFQ
-## 6                 NA            6 track spotify:track:7KXaC0HCD4VoIZOzWfdirZ
-## 7                 NA            7 track spotify:track:0ZqSsO2xoVvcrhpiRuqCmt
-## 8                 NA            8 track spotify:track:3z2ngCk1Us5E0DtNGczXwJ
-## 9                 NA            9 track spotify:track:4BtpBz9IIamSuYJ26Qoi8G
-## 10                NA           10 track spotify:track:52efrg776bHRucNKHRWwkE
-## 11                NA           11 track spotify:track:2oMVSmJx1l2FVXjVbx5DTc
-## 12                NA           12 track spotify:track:1koFbbNy8BJvG63B0ExZEQ
-## 13                NA           13 track spotify:track:2MdBcgXwYcuXN3ekvhehN0
-## 14                NA           14 track spotify:track:55scbyvCEL0prcaDKYqiRG
-## 15                NA           15 track spotify:track:6CD4ZmCgYyiECTOWjm5LqC
-## 16                NA           16 track spotify:track:5ZgypEwT8Mayum8GKG1KlG
-## 17                NA           17 track spotify:track:2fS3WRUilBxRoFMk3HVaoW
-## 18                NA            1 track spotify:track:1LT1LaG2hOR8VB2zzMcDjL
-## 19                NA            2 track spotify:track:6s16hVzIWDpv8w4BMCaZdw
-## 20                NA            3 track spotify:track:07SnYttUopjIFHnc1hZIMc
-## 21                NA            4 track spotify:track:4pBM26oKtRWYK2UbYD4OlJ
-## 22                NA            5 track spotify:track:6jQYMZNNNFOljhzo65MBL3
-## 23                NA            6 track spotify:track:0gPVEAjbO8oQyCEVE6oudx
-## 24                NA            7 track spotify:track:4eQVJHK0O5LctXPzsRj9LI
-## 25                NA            8 track spotify:track:7sfE6KbRUzH2VBOeDGUsie
-## 26                NA            9 track spotify:track:4zLY4SsBmfFo3gsk6GCjUM
-## 27                NA           10 track spotify:track:2pymXFmRFGQ5b0ZXYRdxjn
-## 28                NA           11 track spotify:track:32RwqKbqyzi7NJ11NBbOlN
-## 29                NA           12 track spotify:track:6FQkfaghoLt72rLmhsAqFy
-## 30                NA           13 track spotify:track:2PWnAe9C52xvJYhBFNuIqm
-##                                    external_urls.spotify  album_name key_name
-## 1  https://open.spotify.com/track/183Klch3PBWLz2S6zNUVxR The Beatles        A
-## 2  https://open.spotify.com/track/21pC0RPgkThjHlwpmCtxGb The Beatles        D
-## 3  https://open.spotify.com/track/0bYmYFbEAADKAlHdJqZ1gL The Beatles        G
-## 4  https://open.spotify.com/track/02FJNRUlB28e1F0R9uP2s1 The Beatles       A#
-## 5  https://open.spotify.com/track/76YBf6AwWhPG62H2LZftFQ The Beatles        A
-## 6  https://open.spotify.com/track/7KXaC0HCD4VoIZOzWfdirZ The Beatles        C
-## 7  https://open.spotify.com/track/0ZqSsO2xoVvcrhpiRuqCmt The Beatles        D
-## 8  https://open.spotify.com/track/3z2ngCk1Us5E0DtNGczXwJ The Beatles        A
-## 9  https://open.spotify.com/track/4BtpBz9IIamSuYJ26Qoi8G The Beatles       A#
-## 10 https://open.spotify.com/track/52efrg776bHRucNKHRWwkE The Beatles        A
-## 11 https://open.spotify.com/track/2oMVSmJx1l2FVXjVbx5DTc The Beatles        G
-## 12 https://open.spotify.com/track/1koFbbNy8BJvG63B0ExZEQ The Beatles       G#
-## 13 https://open.spotify.com/track/2MdBcgXwYcuXN3ekvhehN0 The Beatles        G
-## 14 https://open.spotify.com/track/55scbyvCEL0prcaDKYqiRG The Beatles        C
-## 15 https://open.spotify.com/track/6CD4ZmCgYyiECTOWjm5LqC The Beatles        G
-## 16 https://open.spotify.com/track/5ZgypEwT8Mayum8GKG1KlG The Beatles        F
-## 17 https://open.spotify.com/track/2fS3WRUilBxRoFMk3HVaoW The Beatles        D
-## 18 https://open.spotify.com/track/1LT1LaG2hOR8VB2zzMcDjL The Beatles        D
-## 19 https://open.spotify.com/track/6s16hVzIWDpv8w4BMCaZdw The Beatles        E
-## 20 https://open.spotify.com/track/07SnYttUopjIFHnc1hZIMc The Beatles        D
-## 21 https://open.spotify.com/track/4pBM26oKtRWYK2UbYD4OlJ The Beatles        D
-## 22 https://open.spotify.com/track/6jQYMZNNNFOljhzo65MBL3 The Beatles        G
-## 23 https://open.spotify.com/track/0gPVEAjbO8oQyCEVE6oudx The Beatles        E
-## 24 https://open.spotify.com/track/4eQVJHK0O5LctXPzsRj9LI The Beatles        F
-## 25 https://open.spotify.com/track/7sfE6KbRUzH2VBOeDGUsie The Beatles        A
-## 26 https://open.spotify.com/track/4zLY4SsBmfFo3gsk6GCjUM The Beatles        G
-## 27 https://open.spotify.com/track/2pymXFmRFGQ5b0ZXYRdxjn The Beatles        B
-## 28 https://open.spotify.com/track/32RwqKbqyzi7NJ11NBbOlN The Beatles        C
-## 29 https://open.spotify.com/track/6FQkfaghoLt72rLmhsAqFy The Beatles        A
-## 30 https://open.spotify.com/track/2PWnAe9C52xvJYhBFNuIqm The Beatles        G
-##    mode_name key_mode
-## 1      major  A major
-## 2      major  D major
-## 3      minor  G minor
-## 4      major A# major
-## 5      minor  A minor
-## 6      major  C major
-## 7      major  D major
-## 8      minor  A minor
-## 9      major A# major
-## 10     major  A major
-## 11     major  G major
-## 12     major G# major
-## 13     major  G major
-## 14     major  C major
-## 15     major  G major
-## 16     major  F major
-## 17     major  D major
-## 18     major  D major
-## 19     major  E major
-## 20     major  D major
-## 21     major  D major
-## 22     major  G major
-## 23     major  E major
-## 24     major  F major
-## 25     major  A major
-## 26     major  G major
-## 27     minor  B minor
-## 28     major  C major
-## 29     minor  A minor
-## 30     major  G major</code></pre>
+<pre><code>##   artist_name              artist_id               album_id album_type
+## 1 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+## 2 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+## 3 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+## 4 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+## 5 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+##   album_release_date album_release_year album_release_date_precision
+## 1         2018-11-09               2018                          day
+## 2         2018-11-09               2018                          day
+## 3         2018-11-09               2018                          day
+## 4         2018-11-09               2018                          day
+## 5         2018-11-09               2018                          day
+##   danceability
+## 1        0.510
+## 2        0.395
+## 3        0.529
+## 4        0.803
+## 5        0.749
+##                                                                                                                                                                                                 artists
+## 1 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+## 2 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+## 3 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+## 4 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+## 5 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+##                              track_uri
+## 1 spotify:track:183Klch3PBWLz2S6zNUVxR
+## 2 spotify:track:21pC0RPgkThjHlwpmCtxGb
+## 3 spotify:track:0bYmYFbEAADKAlHdJqZ1gL
+## 4 spotify:track:02FJNRUlB28e1F0R9uP2s1
+## 5 spotify:track:76YBf6AwWhPG62H2LZftFQ
+##                                   external_urls.spotify  album_name key_name
+## 1 https://open.spotify.com/track/183Klch3PBWLz2S6zNUVxR The Beatles        A
+## 2 https://open.spotify.com/track/21pC0RPgkThjHlwpmCtxGb The Beatles        D
+## 3 https://open.spotify.com/track/0bYmYFbEAADKAlHdJqZ1gL The Beatles        G
+## 4 https://open.spotify.com/track/02FJNRUlB28e1F0R9uP2s1 The Beatles       A#
+## 5 https://open.spotify.com/track/76YBf6AwWhPG62H2LZftFQ The Beatles        A
+##   mode_name key_mode
+## 1     major  A major
+## 2     major  D major
+## 3     minor  G minor
+## 4     major A# major
+## 5     minor  A minor</code></pre>
 <pre class="r"><code>beatles %&gt;% 
   count(key_mode, sort = TRUE) %&gt;% 
   head(10) %&gt;% 
   as_tibble()</code></pre>
-<pre><code>## # A tibble: 10 x 2
-##    key_mode     n
-##    &lt;chr&gt;    &lt;int&gt;
-##  1 D major      6
-##  2 G major      6
-##  3 A major      3
-##  4 A minor      3
-##  5 C major      3
-##  6 A# major     2
-##  7 E major      2
-##  8 F major      2
-##  9 B minor      1
-## 10 G minor      1</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   key_mode     n
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 A major      1
+## 2 A minor      1
+## 3 A# major     1
+## 4 D major      1
+## 5 G minor      1</code></pre>
 <pre class="r"><code>joy &lt;- get_artist_audio_features(&#39;joy division&#39;)
 joy %&gt;% 
   arrange(-valence) %&gt;% 
@@ -1267,37 +840,71 @@ bike_tbl_merged</code></pre>
 </div>
 <div id="data-wrangling" class="section level1">
 <h1><span class="header-section-number">3</span> Data Wrangling</h1>
+<div id="adding-the-code-3" class="section level2">
+<h2><span class="header-section-number">3.1</span> Adding the Code</h2>
+<p>library(tidyverse)</p>
+<p>library(vroom)</p>
+<p>library(magrittr)</p>
+<p>library(lubridate)</p>
+<p>library(data.table)</p>
+<p>patent &lt;- “G:/Data Science Project-R/DS_101/02_data_wrangling/patent.tsv”</p>
+<p>patent_tbl &lt;- fread(patent)</p>
+<p>setnames(patent_tbl, “id”, “patent_id”)</p>
+<p>patent_tbl_view &lt;- patent_tbl[1:2]</p>
+<p>assignee &lt;- “G:/Data Science Project-R/DS_101/02_data_wrangling/assignee.tsv”</p>
+<p>assignee_tbl &lt;- fread(assignee)</p>
+<p>setnames(assignee_tbl, “id”, “assignee_id”)</p>
+<p>patent_assignee &lt;- “G:/Data Science Project-R/DS_101/02_data_wrangling/patent_assignee.tsv”</p>
+<p>patent_assignee_tbl&lt;- fread(patent_assignee)</p>
+<p>uspc &lt;- “G:/Data Science Project-R/DS_101/02_data_wrangling/uspc.tsv”</p>
+<p>uspc_tbl&lt;- fread(uspc)</p>
+<p>setnames(uspc_tbl, “uuid”, “assignee_id”)</p>
+</div>
 <div id="challenge-1-2" class="section level2">
-<h2><span class="header-section-number">3.1</span> Challenge 1</h2>
+<h2><span class="header-section-number">3.2</span> Challenge 1</h2>
 <p>Patent Dominance: What US company / corporation has the most patents? List the 10 US companies with the most assigned/granted patents.</p>
+<div id="adding-the-code-4" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Adding the Code</h3>
+<p>combined_data_assignee &lt;- merge(assignee_tbl, patent_assignee_tbl, by=‘assignee_id’)</p>
+<p>na.omit(combined_data_assignee, cols=“organization”)</p>
+<p>combined_data_assignee [, .N, by = organization][order(-N)] %&gt;% head(1)%&gt;%na.omit()</p>
+<p>combined_data_assignee [, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(11)</p>
+</div>
 </div>
 <div id="challenge-2-2" class="section level2">
-<h2><span class="header-section-number">3.2</span> Challenge 2</h2>
+<h2><span class="header-section-number">3.3</span> Challenge 2</h2>
 <p>Recent patent acitivity: What US company had the most patents granted in 2019? List the top 10 companies with the most new granted patents for 2019.</p>
+<div id="adding-the-code-5" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Adding the Code</h3>
+<p>combined_data_patent &lt;- merge(combined_data_assignee,patent_tbl , by=‘patent_id’)</p>
+<p>reshaped_patent_tbl &lt;- combined_data_patent[,.(patent_id, country, date, organization,kind)]</p>
+<p>#What US company had the most patents granted in 2019?</p>
+<p>reshaped_patent_tbl [lubridate::year(date) == 2019, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(1)</p>
+<p>#List the top 10 companies with the most new granted patents for 2019.</p>
+<p>reshaped_patent_tbl [lubridate::year(date) == 2019 &amp; kind==“B1”, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(10)</p>
+</div>
 </div>
 <div id="challenge-3" class="section level2">
-<h2><span class="header-section-number">3.3</span> Challenge 3</h2>
+<h2><span class="header-section-number">3.4</span> Challenge 3</h2>
 <p>Innovation in Tech: What is the most innovative tech sector? For the top 10 companies (worldwide) with the most patents, what are the top 5 USPTO tech main classes?</p>
+<div id="adding-the-code-6" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Adding the Code</h3>
+<p>combined_data_uspc &lt;- merge(combined_data_assignee,uspc_tbl , by=‘patent_id’)</p>
+<p>reshaped_uspc_tbl &lt;- combined_data_uspc[,.(patent_id, type, organization,mainclass_id,subclass_id)]</p>
+<p>#What is the most innovative tech sector?</p>
+<p>patent_tbl[, .N, by = type][order(-N)] %&gt;% head(1)</p>
+<p>#What are the top 5 USPTO main classes of their patents?</p>
+<p>reshaped_uspc_tbl[organization==“International Business Machines Corporation”, .N, by = mainclass_id][order(-N)]%&gt;% head(5)</p>
 </div>
-<div id="adding-the-code-3" class="section level2">
-<h2><span class="header-section-number">3.4</span> Adding the Code</h2>
 </div>
-</div>
-<div id="r-codereadlinesdata_wrangling_exercise_data.r" class="section level1">
-<h1><span class="header-section-number">4</span> <code>{r, code=readLines("Data_wrangling_exercise_data.R")} #</code></h1>
 </div>
 <div id="data-visualization" class="section level1">
-<h1><span class="header-section-number">5</span> Data Visualization</h1>
+<h1><span class="header-section-number">4</span> Data Visualization</h1>
 <div id="challenge-1-3" class="section level2">
-<h2><span class="header-section-number">5.1</span> Challenge 1</h2>
+<h2><span class="header-section-number">4.1</span> Challenge 1</h2>
 <p>Map the time course of the cumulative Covid-19 cases!</p>
-</div>
-<div id="challenge-2-3" class="section level2">
-<h2><span class="header-section-number">5.2</span> Challenge 2</h2>
-<p>Visualize the distribution of the mortality rate (deaths / population) with geom_map().</p>
-</div>
-<div id="adding-the-code-4" class="section level2">
-<h2><span class="header-section-number">5.3</span> Adding the Code</h2>
+<div id="adding-the-code-7" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Adding the Code</h3>
 <pre class="r"><code>library(tidyverse)
 library(ggthemes)
 covid_data_tbl &lt;- read_csv(&quot;https://opendata.ecdc.europa.eu/covid19/casedistribution/csv&quot;)
@@ -1345,7 +952,55 @@ cumulative_case_tbl %&gt;%
         legend.direction = &quot;vertical&quot;,
         axis.text.x = element_text(angle = 45))</code></pre>
 <p><img src="journal_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<pre class="r"><code>#-------------------------------------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+<div id="challenge-2-3" class="section level2">
+<h2><span class="header-section-number">4.2</span> Challenge 2</h2>
+<p>Visualize the distribution of the mortality rate (deaths / population) with geom_map().</p>
+<div id="adding-the-code-8" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Adding the Code</h3>
+<pre class="r"><code>library(tidyverse)
+library(ggthemes)
+covid_data_tbl &lt;- read_csv(&quot;https://opendata.ecdc.europa.eu/covid19/casedistribution/csv&quot;)
+
+covid_data_tbl &lt;- covid_data_tbl %&gt;%
+  rename(cumulative_cases = `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000`, continent=continentExp, country=countriesAndTerritories)
+
+##### challenge 2
+world &lt;- map_data(&quot;world&quot;)
+
+covid_data_tbl_reshaped &lt;- covid_data_tbl%&gt;%
+  filter(year==2020)
+
+
+covid_data_tbl_reshaped  &lt;- covid_data_tbl_reshaped  %&gt;% 
+  mutate(country = case_when(
+    country == &quot;United_Kingdom&quot; ~ &quot;UK&quot;,
+    country == &quot;United_States_of_America&quot; ~ &quot;USA&quot;,
+    country == &quot;Czechia&quot; ~ &quot;Czech Republic&quot;,
+    country == &quot;Bonaire, Saint Eustatius and Saba&quot; ~ &quot;Bonaire&quot;,
+    TRUE ~ country
+    
+  ))
+
+covid_data_tbl_reshaped &lt;- covid_data_tbl_reshaped %&gt;%
+  group_by(country)%&gt;%
+  summarise(total_death = sum(deaths),population = mean(popData2019))
+
+
+covid_data_tbl_reshaped  &lt;- covid_data_tbl_reshaped  %&gt;%
+  mutate(country_new = str_replace_all(country, &quot;_&quot;, &quot; &quot;) , Mortality_Rate = (total_death / population) * 100)
+
+world &lt;- dplyr::left_join(world, covid_data_tbl_reshaped , by=c(&quot;region&quot; = &quot;country_new&quot;))
+
+
+world %&gt;%
+  ggplot(aes(map_id = region)) +
+  geom_map(aes(fill = Mortality_Rate), map = world, color = &quot;white&quot;) +
+  expand_limits(x = world$long, y = world$lat)+
+  theme_minimal() </code></pre>
+<p><img src="journal_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
 </div>
 </div>
 
