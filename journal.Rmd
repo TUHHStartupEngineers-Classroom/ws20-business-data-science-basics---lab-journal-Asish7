@@ -66,8 +66,8 @@ Innovation in Tech: What is the most innovative tech sector? For the top 10 comp
 
 ## Adding the Code
 
-```{r, code=readLines("Data_wrangling_exercise_data.R")}
-```
+# ```{r, code=readLines("Data_wrangling_exercise_data.R")}
+# ```
 
 
 # Data Visualization
@@ -80,3 +80,6 @@ Map the time course of the cumulative Covid-19 cases!
 Visualize the distribution of the mortality rate (deaths / population) with geom_map(). 
 
 ## Adding the Code
+
+```{r, code=readLines("Data_visualization_exercise1.R")}
+```
