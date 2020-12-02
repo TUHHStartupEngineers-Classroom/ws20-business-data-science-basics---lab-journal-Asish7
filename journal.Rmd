@@ -105,9 +105,37 @@ na.omit(combined_data_assignee, cols="organization")
 
 combined_data_assignee [, .N, by = organization][order(-N)] %>% head(1)%>%na.omit()
 
+------->                                  
+
+organization                                     N
+
+1: International Business Machines Corporation 139091
 
 combined_data_assignee [, .N, by = organization][order(-N)]%>%na.omit() %>% head(11)
 
+------->  
+
+ organization                                     N
+ 
+ 1: International Business Machines Corporation 139091
+ 
+ 2:               Samsung Electronics Co., Ltd.  93561
+ 
+ 3:                      Canon Kabushiki Kaisha  75909
+ 
+ 4:                            Sony Corporation  54342
+ 
+ 5:                    Kabushiki Kaisha Toshiba  49442
+ 
+ 6:                    General Electric Company  47121
+ 
+ 7:                               Hitachi, Ltd.  45374
+ 
+ 8:                           Intel Corporation  42156
+ 
+9:                             Fujitsu Limited  37196
+
+10:   Hewlett-Packard Development Company, L.P.  35572
 
 ## Challenge 2
 
@@ -123,9 +151,39 @@ reshaped_patent_tbl <- combined_data_patent[,.(patent_id, country, date, organiz
 
 reshaped_patent_tbl [lubridate::year(date) == 2019, .N, by = organization][order(-N)]%>%na.omit() %>% head(1)
 
+------->  
+
+              organization                      N
+              
+1: International Business Machines Corporation 9265
+
 #List the top 10 companies with the most new granted patents for 2019.
 
 reshaped_patent_tbl [lubridate::year(date) == 2019 & kind=="B1", .N, by = organization][order(-N)]%>%na.omit() %>% head(10)
+
+------->  
+
+                             organization            N
+                             
+ 1:                      Amazon Technologies, Inc. 1766
+ 
+ 2:                     EMC IP Holding Company LLC  719
+ 
+ 3:                                    Google Inc.  550
+ 
+ 4:    International Business Machines Corporation  515
+ 
+ 5:                      Capital One Services, LLC  386
+ 
+ 6:                                     Apple Inc.  299
+ 
+ 7:                                                 276
+ 
+ 8: STATE FARM MUTUAL AUTOMOBILE INSURANCE COMPANY  242
+ 
+ 9:                                 Facebook, Inc.  239
+ 
+10:            Pioneer Hi-Bred International, Inc.  233
 
 ## Challenge 3
 
@@ -140,9 +198,29 @@ reshaped_uspc_tbl <- combined_data_uspc[,.(patent_id, type, organization,maincla
 
 patent_tbl[, .N, by = type][order(-N)] %>% head(1)
 
+-------> 
+
+     type       N
+     
+1: utility 6735315
+
 #What are the top 5 USPTO main classes of their patents?
 
 reshaped_uspc_tbl[organization=="International Business Machines Corporation", .N, by = mainclass_id][order(-N)]%>% head(5)
+
+-------> 
+
+mainclass_id     N
+
+1:          257 21754
+
+2:          709 16834
+
+3:          438 16596
+
+4:          707 16147
+
+5:          711 12829
 
 
 # Data Visualization

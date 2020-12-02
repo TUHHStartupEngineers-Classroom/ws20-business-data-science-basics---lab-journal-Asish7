@@ -868,7 +868,22 @@ bike_tbl_merged</code></pre>
 <p>combined_data_assignee &lt;- merge(assignee_tbl, patent_assignee_tbl, by=‘assignee_id’)</p>
 <p>na.omit(combined_data_assignee, cols=“organization”)</p>
 <p>combined_data_assignee [, .N, by = organization][order(-N)] %&gt;% head(1)%&gt;%na.omit()</p>
+<p>——-&gt;</p>
+<p>organization N</p>
+<p>1: International Business Machines Corporation 139091</p>
 <p>combined_data_assignee [, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(11)</p>
+<p>——-&gt;</p>
+<p>organization N</p>
+<p>1: International Business Machines Corporation 139091</p>
+<p>2: Samsung Electronics Co., Ltd. 93561</p>
+<p>3: Canon Kabushiki Kaisha 75909</p>
+<p>4: Sony Corporation 54342</p>
+<p>5: Kabushiki Kaisha Toshiba 49442</p>
+<p>6: General Electric Company 47121</p>
+<p>7: Hitachi, Ltd. 45374</p>
+<p>8: Intel Corporation 42156</p>
+<p>9: Fujitsu Limited 37196</p>
+<p>10: Hewlett-Packard Development Company, L.P. 35572</p>
 </div>
 </div>
 <div id="challenge-2-2" class="section level2">
@@ -880,8 +895,25 @@ bike_tbl_merged</code></pre>
 <p>reshaped_patent_tbl &lt;- combined_data_patent[,.(patent_id, country, date, organization,kind)]</p>
 <p>#What US company had the most patents granted in 2019?</p>
 <p>reshaped_patent_tbl [lubridate::year(date) == 2019, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(1)</p>
+<p>——-&gt;</p>
+<pre><code>          organization                      N
+          </code></pre>
+<p>1: International Business Machines Corporation 9265</p>
 <p>#List the top 10 companies with the most new granted patents for 2019.</p>
 <p>reshaped_patent_tbl [lubridate::year(date) == 2019 &amp; kind==“B1”, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(10)</p>
+<p>——-&gt;</p>
+<pre><code>                         organization            N
+                         </code></pre>
+<p>1: Amazon Technologies, Inc. 1766</p>
+<p>2: EMC IP Holding Company LLC 719</p>
+<p>3: Google Inc. 550</p>
+<p>4: International Business Machines Corporation 515</p>
+<p>5: Capital One Services, LLC 386</p>
+<p>6: Apple Inc. 299</p>
+<p>7: 276</p>
+<p>8: STATE FARM MUTUAL AUTOMOBILE INSURANCE COMPANY 242</p>
+<p>9: Facebook, Inc. 239</p>
+<p>10: Pioneer Hi-Bred International, Inc. 233</p>
 </div>
 </div>
 <div id="challenge-3" class="section level2">
@@ -893,8 +925,19 @@ bike_tbl_merged</code></pre>
 <p>reshaped_uspc_tbl &lt;- combined_data_uspc[,.(patent_id, type, organization,mainclass_id,subclass_id)]</p>
 <p>#What is the most innovative tech sector?</p>
 <p>patent_tbl[, .N, by = type][order(-N)] %&gt;% head(1)</p>
+<p>——-&gt;</p>
+<pre><code> type       N
+ </code></pre>
+<p>1: utility 6735315</p>
 <p>#What are the top 5 USPTO main classes of their patents?</p>
 <p>reshaped_uspc_tbl[organization==“International Business Machines Corporation”, .N, by = mainclass_id][order(-N)]%&gt;% head(5)</p>
+<p>——-&gt;</p>
+<p>mainclass_id N</p>
+<p>1: 257 21754</p>
+<p>2: 709 16834</p>
+<p>3: 438 16596</p>
+<p>4: 707 16147</p>
+<p>5: 711 12829</p>
 </div>
 </div>
 </div>
