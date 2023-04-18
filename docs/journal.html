@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Asish Kumar Ghosh" />
+
+<meta name="date" content="2020-11-30" />
+
+<title>Business Data Science Basic</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MyLabJournal</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="journal.html">Journal</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Class notes
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="dictionary.html">Dictionary</a>
+    </li>
+    <li>
+      <a href="data_wrangling.html">Data Wrangling</a>
+    </li>
+    <li>
+      <a href="ggplot_graphs.html">ggplot graphs</a>
+    </li>
+    <li>
+      <a href="machine_learning.html">machine learning</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Business Data Science Basic</h1>
+<h4 class="author">Asish Kumar Ghosh</h4>
+<h4 class="date">2020-11-30</h4>
+
+</div>
+
+
+<div id="intro-to-the-tidyverse" class="section level1">
+<h1><span class="header-section-number">1</span> Intro to the tidyverse</h1>
+<div id="challenge-1" class="section level2">
+<h2><span class="header-section-number">1.1</span> Challenge 1</h2>
+<p>Analyze the sales by location (state) with a bar plot. Since state and city are multiple features (variables), they should be split. Which state has the highes revenue? Replace your bike_orderlines_wrangled_tbl object with the newly wrangled object (with the columns state and city).</p>
+</div>
+<div id="challenge-2" class="section level2">
+<h2><span class="header-section-number">1.2</span> Challenge 2</h2>
+<p>Analyze the sales by location and year (facet_wrap). Because there are 12 states with bike stores, you should get 12 plots.</p>
+</div>
+<div id="adding-the-code" class="section level2">
+<h2><span class="header-section-number">1.3</span> Adding the Code</h2>
+<pre class="r"><code># 1.0 Load libraries ----
+library(tidyverse)
+library(readxl)
+library(ggplot2)
+
+# 2.0 Importing Files ----
+bikes_tbl &lt;- read_excel(path=&quot;G:/Data Science Project-R/DS_101/00_data/01_bike_sales/01_raw_data/bikes.xlsx&quot;)
+orderlines_tbl &lt;- read_excel(&quot;G:/Data Science Project-R/DS_101/00_data/01_bike_sales/01_raw_data/orderlines.xlsx&quot;)
+bikeshops_tbl  &lt;- read_excel(&quot;G:/Data Science Project-R/DS_101/00_data/01_bike_sales/01_raw_data/bikeshops.xlsx&quot;)
+
+
+
+# 3.0 Examining Data ----
+
+
+# 4.0 Joining Data ----
+
+left_join(orderlines_tbl, bikes_tbl,by = c(&quot;product.id&quot; = &quot;bike.id&quot;))</code></pre>
+<pre><code>## # A tibble: 15,644 x 15
+##    ...1  order.id order.line order.date          customer.id product.id quantity model    model.year frame.material weight price category    gender url           
+##    &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;dttm&gt;                    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;         
+##  1 1            1          1 2015-01-07 00:00:00           2       2681        1 Spectra~       2021 carbon          13.8   3119 Mountain -~ female https://www.c~
+##  2 2            1          2 2015-01-07 00:00:00           2       2411        1 Ultimat~       2020 carbon           7.44  5359 Road - Rac~ unisex https://www.c~
+##  3 3            2          1 2015-01-10 00:00:00          10       2629        1 Neuron ~       2021 carbon          14.1   2729 Mountain -~ unisex https://www.c~
+##  4 4            2          2 2015-01-10 00:00:00          10       2137        1 Speedma~       2019 carbon           8.8   1749 Road - Tri~ unisex https://www.c~
+##  5 5            3          1 2015-01-10 00:00:00           6       2367        1 Stitche~       2020 aluminium       11.5   1219 Mountain -~ unisex https://www.c~
+##  6 6            3          2 2015-01-10 00:00:00           6       1973        1 Roadlit~       2020 carbon           8.8   1359 Hybrid / C~ unisex https://www.c~
+##  7 7            3          3 2015-01-10 00:00:00           6       2422        1 Speedma~       2020 carbon           8.2   2529 Road - Tri~ female https://www.c~
+##  8 8            3          4 2015-01-10 00:00:00           6       2655        1 Inflite~       2021 aluminium        8.85  1559 Road - Cyc~ unisex https://www.c~
+##  9 9            3          5 2015-01-10 00:00:00           6       2247        1 Torque ~       2020 carbon          14.4   3899 Mountain -~ unisex https://www.c~
+## 10 10           4          1 2015-01-11 00:00:00          22       2408        1 Ultimat~       2020 carbon           6.5   6629 Road - Rac~ unisex https://www.c~
+## # ... with 15,634 more rows</code></pre>
+<pre class="r"><code>bike_orderlines_joined_tbl &lt;- orderlines_tbl %&gt;%
+  left_join(bikes_tbl, by = c(&quot;product.id&quot; = &quot;bike.id&quot;)) %&gt;%
+  left_join(bikeshops_tbl, by = c(&quot;customer.id&quot; = &quot;bikeshop.id&quot;))
+
+
+
+# 5.0 Wrangling Data ----
+
+bike_orderlines_wrangled_tbl &lt;- bike_orderlines_joined_tbl %&gt;%
+  # 5.1 Separate category name
+  separate(col    = location,
+           into   = c(&quot;city&quot;, &quot;state&quot;),
+           sep    = &quot;,&quot;)%&gt;%
+  mutate(total.price = price * quantity)%&gt;%
+  select(-...1, -gender,-ends_with(&quot;.id&quot;))%&gt;%
+  
+
+rename(bikeshop = name) %&gt;%
+  set_names(names(.) %&gt;% str_replace_all(&quot;\\.&quot;, &quot;_&quot;))
+
+
+
+# 6.0 Business Insights ----
+
+# Step 1 - Manipulate
+sales_by_state_tbl &lt;- bike_orderlines_wrangled_tbl %&gt;%
+  select(state,order_date, total_price) %&gt;%
+  group_by(state) %&gt;% 
+  summarize(sales = sum(total_price)) %&gt;%
+  
+  mutate(sales_text = scales::dollar(sales, big.mark = &quot;.&quot;, 
+                                     decimal.mark = &quot;,&quot;, 
+                                     prefix = &quot;&quot;, 
+                                     suffix = &quot; â‚¬&quot;))
+
+# Step 2 - Visualize
+
+
+
+sales_by_state_tbl %&gt;%
+  ggplot(aes(x = state, y = sales)) +
+  geom_col(fill = &quot;red&quot;) + # Use geom_col for a bar plot
+  geom_label(aes(label = sales_text)) + # Adding labels to the bars
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  
+  scale_y_continuous(labels = scales::dollar_format(big.mark = &quot;.&quot;, 
+                                                    decimal.mark = &quot;,&quot;, 
+                                                    prefix = &quot;&quot;, 
+                                                    suffix = &quot; â‚¬&quot;)) +
+  labs(
+    title    = &quot;Revenue by State&quot;,
+    subtitle = &quot;Upward Trend&quot;,
+    x = &quot;State&quot;, # Override defaults for x and y
+    y = &quot;Revenue&quot;
+  )</code></pre>
+<p><img src="journal_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code># Step 1 - Manipulate
+sales_by_state_tbl_1 &lt;- bike_orderlines_wrangled_tbl %&gt;%
+  select(state,order_date, total_price) %&gt;%
+  mutate(year = year(order_date))%&gt;%
+  group_by(year,state) %&gt;% 
+  summarize(sales = sum(total_price)) %&gt;%
+  
+  mutate(sales_text = scales::dollar(sales, big.mark = &quot;.&quot;, 
+                                     decimal.mark = &quot;,&quot;, 
+                                     prefix = &quot;&quot;, 
+                                     suffix = &quot; â‚¬&quot;))
+
+
+
+
+# Step 2 - Visualize facet
+
+
+sales_by_state_tbl_1 %&gt;%
+  ggplot(aes(x =year , y = sales, fill = state)) +
+  geom_col(fill = &quot;red&quot;)+
+  facet_wrap(~ state) +
+  geom_label(aes(label = sales_text)) + # Adding labels to the bars
+ 
+
+  scale_y_continuous(labels = scales::dollar_format(big.mark = &quot;.&quot;, 
+                                                    decimal.mark = &quot;,&quot;, 
+                                                    prefix = &quot;&quot;, 
+                                                    suffix = &quot; â‚¬&quot;)) +
+  labs(
+    title = &quot;Revenue by year and State&quot;,
+    subtitle = &quot;Each product category has an upward trend&quot;,
+    fill = &quot;Main category&quot; # Changes the legend name
+  )</code></pre>
+<p><img src="journal_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+</div>
+</div>
+<div id="data-acquisition" class="section level1">
+<h1><span class="header-section-number">2</span> Data Acquisition</h1>
+<div id="challenge-1-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> Challenge 1</h2>
+<p>Get some data via an API. There are millions of providers, that offer API access for free and have good documentation about how to query their service. You just have to google them. You can use whatever service you want. For example, you can get data about your listening history (spotify), get data about flights (skyscanner) or just check the weather forecast.</p>
+<div id="adding-the-code-1" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Adding the Code</h3>
+<pre class="r"><code>library(devtools)
+library(spotifyr)
+library(tidyverse)
+library(knitr)
+library(lubridate)
+library(ggridges)
+
+
+Sys.setenv(SPOTIFY_CLIENT_ID = &#39;5964d300017d4643a56fedb1e42b561e&#39;)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = &#39;307841367f1c4457baea58d6bf6584ff&#39;)
+
+access_token &lt;- get_spotify_access_token()
+
+beatles &lt;- get_artist_audio_features(&#39;the beatles&#39;)%&gt;%
+  select(artist_name,artist_id, album_id,album_type, album_release_date, album_release_year, album_release_date_precision, danceability,artists ,track_uri,external_urls.spotify , album_name, key_name, mode_name ,key_mode)%&gt;%
+  head(5)
+
+beatles</code></pre>
+<pre><code>##   artist_name              artist_id               album_id album_type
+## 1 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+## 2 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+## 3 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+## 4 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+## 5 The Beatles 3WrFJ7ztbogyGnTHbHJFl2 1WMVvswNzB9i2UMh9svso5      album
+##   album_release_date album_release_year album_release_date_precision
+## 1         2018-11-09               2018                          day
+## 2         2018-11-09               2018                          day
+## 3         2018-11-09               2018                          day
+## 4         2018-11-09               2018                          day
+## 5         2018-11-09               2018                          day
+##   danceability
+## 1        0.510
+## 2        0.395
+## 3        0.529
+## 4        0.803
+## 5        0.749
+##                                                                                                                                                                                                 artists
+## 1 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+## 2 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+## 3 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+## 4 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+## 5 https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2, 3WrFJ7ztbogyGnTHbHJFl2, The Beatles, artist, spotify:artist:3WrFJ7ztbogyGnTHbHJFl2, https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+##                              track_uri
+## 1 spotify:track:183Klch3PBWLz2S6zNUVxR
+## 2 spotify:track:21pC0RPgkThjHlwpmCtxGb
+## 3 spotify:track:0bYmYFbEAADKAlHdJqZ1gL
+## 4 spotify:track:02FJNRUlB28e1F0R9uP2s1
+## 5 spotify:track:76YBf6AwWhPG62H2LZftFQ
+##                                   external_urls.spotify  album_name key_name
+## 1 https://open.spotify.com/track/183Klch3PBWLz2S6zNUVxR The Beatles        A
+## 2 https://open.spotify.com/track/21pC0RPgkThjHlwpmCtxGb The Beatles        D
+## 3 https://open.spotify.com/track/0bYmYFbEAADKAlHdJqZ1gL The Beatles        G
+## 4 https://open.spotify.com/track/02FJNRUlB28e1F0R9uP2s1 The Beatles       A#
+## 5 https://open.spotify.com/track/76YBf6AwWhPG62H2LZftFQ The Beatles        A
+##   mode_name key_mode
+## 1     major  A major
+## 2     major  D major
+## 3     minor  G minor
+## 4     major A# major
+## 5     minor  A minor</code></pre>
+<pre class="r"><code>beatles %&gt;% 
+  count(key_mode, sort = TRUE) %&gt;% 
+  head(10) %&gt;% 
+  as_tibble()</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   key_mode     n
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 A major      1
+## 2 A minor      1
+## 3 A# major     1
+## 4 D major      1
+## 5 G minor      1</code></pre>
+<pre class="r"><code>joy &lt;- get_artist_audio_features(&#39;joy division&#39;)
+joy %&gt;% 
+  arrange(-valence) %&gt;% 
+  select(track_name, valence) %&gt;% 
+  head(10) %&gt;% 
+  as_tibble()</code></pre>
+<pre><code>## # A tibble: 10 x 2
+##    track_name                                valence
+##    &lt;chr&gt;                                       &lt;dbl&gt;
+##  1 Passover - 2020 Digital Master              0.946
+##  2 Colony - 2020 Digital Master                0.829
+##  3 Atrocity Exhibition - 2020 Digital Master   0.79 
+##  4 Isolation - 2020 Digital Master             0.778
+##  5 A Means to an End - 2020 Digital Master     0.774
+##  6 Disorder - 2019 Digital Master              0.73 
+##  7 Interzone - 2019 Digital Master             0.727
+##  8 Heart and Soul - 2020 Digital Master        0.692
+##  9 Twenty Four Hours - 2020 Digital Master     0.658
+## 10 She&#39;s Lost Control - 2019 Digital Master    0.617</code></pre>
+</div>
+</div>
+<div id="challenge-2-1" class="section level2">
+<h2><span class="header-section-number">2.2</span> Challenge 2</h2>
+<p>Scrape one of the competitor websites of canyon (either <a href="https://www.rosebikes.de/" class="uri">https://www.rosebikes.de/</a> or <a href="https://www.radon-bikes.de" class="uri">https://www.radon-bikes.de</a>) and create a small database. The database should contain the model names and prices for at least one category. Use the selectorgadget to get a good understanding of the website structure.</p>
+<div id="adding-the-code-2" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Adding the Code</h3>
+<pre class="r"><code>library(tidyverse) # Main Package - Loads dplyr, purrr, etc.
+library(rvest)     # HTML Hacking &amp; Web Scraping
+library(xopen)     # Quickly opening URLs
+library(jsonlite)  # converts JSON files to R objects
+library(glue)      # concatenate strings
+library(stringi)   # character string/text processing
+library(rvest)
+
+
+#Getting the Urls
+
+url &lt;- &quot;https://www.radon-bikes.de/&quot;
+#xopen(url)
+
+url_home &lt;- read_html(url)
+url_home</code></pre>
+<pre><code>## {html_document}
+## &lt;html lang=&quot;de&quot; data-lang=&quot;0&quot; class=&quot;no-js &quot;&gt;
+## [1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;\n&lt;meta charset=&quot;utf-8&quot;&gt;\n&lt;!-- \n\tRadon Bikes © 4c media . Werbeagentur Bayreut ...
+## [2] &lt;body id=&quot;page-1&quot;&gt;\n&lt;!-- Google Tag Manager (noscript) --&gt;\n&lt;noscript&gt;&lt;iframe src=&quot;https://www.googletagmanager.com/ns.html?id=GTM-PL6RT4F&quot; height=&quot;0&quot; widt ...</code></pre>
+<pre class="r"><code>bike_family_tbl&lt;- url_home %&gt;%
+  html_nodes(css = &quot;.js-dropdown &gt; a&quot;)%&gt;%
+  html_text()%&gt;%
+  discard(.p = ~stringr::str_detect(.x,&quot;DE|SERVICE|WEAR|LIFE&quot;)) %&gt;%
+  unique()%&gt;%
+  enframe(name = &quot;position&quot;, value = &quot;family_name&quot;)
+
+bike_family_tbl</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   position family_name     
+##      &lt;int&gt; &lt;chr&gt;           
+## 1        1 MOUNTAINBIKE    
+## 2        2 TREKKING &amp; CROSS
+## 3        3 E-BIKE          
+## 4        4 ROADBIKE</code></pre>
+<pre class="r"><code># 1.2 COLLECT PRODUCT CATEGORIES ----
+
+
+bike_category_tbl &lt;- url_home %&gt;%
+  html_nodes(css = &quot;.megamenu__item&gt; a&quot;) %&gt;%
+  html_attr(&#39;href&#39;)%&gt;% 
+  enframe(name = &quot;position&quot;, value = &quot;subdirectory&quot;)%&gt;%
+  mutate(
+    url = glue(&quot;https://www.radon-bikes.de{subdirectory}bikegrid&quot;)
+  )
+
+bike_category_tbl</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##    position subdirectory                  url                                                            
+##       &lt;int&gt; &lt;chr&gt;                         &lt;glue&gt;                                                         
+##  1        1 /mountainbike/hardtail/       https://www.radon-bikes.de/mountainbike/hardtail/bikegrid      
+##  2        2 /mountainbike/fullsuspension/ https://www.radon-bikes.de/mountainbike/fullsuspension/bikegrid
+##  3        3 /trekking-cross/trekking/     https://www.radon-bikes.de/trekking-cross/trekking/bikegrid    
+##  4        4 /trekking-cross/cross/        https://www.radon-bikes.de/trekking-cross/cross/bikegrid       
+##  5        5 /e-bike/mountainbike/         https://www.radon-bikes.de/e-bike/mountainbike/bikegrid        
+##  6        6 /e-bike/trekking/             https://www.radon-bikes.de/e-bike/trekking/bikegrid            
+##  7        7 /roadbike/carbon/             https://www.radon-bikes.de/roadbike/carbon/bikegrid            
+##  8        8 /roadbike/alu/                https://www.radon-bikes.de/roadbike/alu/bikegrid               
+##  9        9 /wear/radon-wear/             https://www.radon-bikes.de/wear/radon-wear/bikegrid            
+## 10       10 /wear/accessoires/            https://www.radon-bikes.de/wear/accessoires/bikegrid</code></pre>
+<pre class="r"><code>bike_category_url &lt;- bike_category_tbl$url[1]
+#xopen(bike_category_url)
+
+html_bike_category  &lt;- read_html(bike_category_url)
+bike_url_tbl        &lt;- html_bike_category %&gt;%
+  
+  html_nodes(css = &quot;.m-bikegrid__item &gt; a&quot;) %&gt;%
+  html_attr(&quot;href&quot;) %&gt;%
+  enframe(name = &quot;position&quot;, value = &quot;category_url&quot;)%&gt;%
+  mutate(
+  url = glue(&quot;https://www.radon-bikes.de{category_url}&quot;)
+      )
+bike_url_tbl </code></pre>
+<pre><code>## # A tibble: 33 x 3
+##    position category_url                                                    url                                                                                   
+##       &lt;int&gt; &lt;chr&gt;                                                           &lt;glue&gt;                                                                                
+##  1        1 /mountainbike/hardtail/jealous/jealous-80-2021/                 https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-80-2021/             
+##  2        2 /mountainbike/hardtail/jealous/jealous-90-2021/                 https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-90-2021/             
+##  3        3 /mountainbike/hardtail/jealous/jealous-100-2021/                https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-100-2021/            
+##  4        4 /mountainbike/hardtail/jealous/jealous-100-ea-2021/             https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-100-ea-2021/         
+##  5        5 /mountainbike/hardtail/jealous/jealous-100-2020/                https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-100-2020/            
+##  6        6 /mountainbike/hardtail/jealous/jealous-100-ea-2020/             https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-100-ea-2020/         
+##  7        7 /mountainbike/hardtail/jealous-frameset/jealous-superlite-1x-1~ https://www.radon-bikes.de/mountainbike/hardtail/jealous-frameset/jealous-superlite-1~
+##  8        8 /mountainbike/hardtail/jealous-al/jealous-al-80-2021/           https://www.radon-bikes.de/mountainbike/hardtail/jealous-al/jealous-al-80-2021/       
+##  9        9 /mountainbike/hardtail/jealous-al/jealous-al-80-hd-2021/        https://www.radon-bikes.de/mountainbike/hardtail/jealous-al/jealous-al-80-hd-2021/    
+## 10       10 /mountainbike/hardtail/jealous-al/1x12/                         https://www.radon-bikes.de/mountainbike/hardtail/jealous-al/1x12/                     
+## # ... with 23 more rows</code></pre>
+<pre class="r"><code># 2.1.2 Extract the descriptions 
+
+bike_price_tbl &lt;- html_bike_category %&gt;%
+  html_nodes(&#39;.m-bikegrid__price.currency_eur .m-bikegrid__price--active&#39;)%&gt;%
+  html_text()%&gt;%
+  enframe(name = &quot;position&quot;, value = &quot;price&quot;)
+
+#bike_price_tbl
+
+bike_title_tbl &lt;- html_bike_category %&gt;%
+  html_nodes(&#39;.m-bikegrid__info .a-heading--small&#39;)%&gt;%
+  html_text()%&gt;%
+  enframe(name = &quot;position&quot;, value = &quot;title&quot;)
+
+#bike_title_tbl
+
+
+bike_tbl1 &lt;- merge(x = bike_title_tbl, y = bike_price_tbl, by = &quot;position&quot;)
+bike_tbl_merged &lt;- merge(x = bike_tbl1, y = bike_url_tbl, by = &quot;position&quot;)
+
+
+
+
+bike_tbl_merged &lt;- bike_tbl_merged %&gt;% 
+  select(-position,-category_url)
+
+
+bike_tbl_merged</code></pre>
+<pre><code>##                                                                                               title  price
+## 1               \n                                    JEALOUS 8.0\n                                 2599 \200
+## 2               \n                                    JEALOUS 9.0\n                                 2999 \200
+## 3              \n                                    JEALOUS 10.0\n                                 3999 \200
+## 4           \n                                    JEALOUS 10.0 EA\n                                 5299 \200
+## 5              \n                                    JEALOUS 10.0\n                                 3699 \200
+## 6           \n                                    JEALOUS 10.0 EA\n                                  3799\200
+## 7  \n                                    NEW JEALOUS SUPERLITE 1X\n                                  999 \200
+## 8            \n                                    JEALOUS AL 8.0\n                                  999 \200
+## 9         \n                                    JEALOUS AL 8.0 HD\n                                 1299 \200
+## 10           \n                                    JEALOUS AL 9.0\n                                 1499 \200
+## 11          \n                                    JEALOUS AL 10.0\n                                 1799 \200
+## 12       \n                                    JEALOUS AL 10.0 SL\n                                 1999 \200
+## 13              \n                                    CRAGGER 7.0\n                                 1199 \200
+## 14              \n                                    CRAGGER 8.0\n                                 1799 \200
+## 15              \n                                    CRAGGER 8.0\n                                 1649 \200
+## 16              \n                                    ZR TEAM 7.0\n                                  799 \200
+## 17              \n                                    ZR TEAM 7.0\n                                  799 \200
+## 18              \n                                    ZR TEAM 8.0\n                                  899 \200
+## 19              \n                                    ZR TEAM 8.0\n                                  899 \200
+## 20              \n                                    ZR TEAM 6.0\n                                   699\200
+## 21              \n                                    ZR TEAM 6.0\n                                   699\200
+## 22              \n                                    ZR TEAM 7.0\n                                   699\200
+## 23              \n                                    ZR TEAM 7.0\n                                   699\200
+## 24              \n                                    ZR TEAM 8.0\n                                   849\200
+## 25              \n                                    ZR TEAM 8.0\n                                   999\200
+## 26              \n                                    ZR TEAM NX1\n                                   799\200
+## 27              \n                                    ZR TEAM NX1\n                                   799\200
+## 28              \n                                    ZR LADY 7.0\n                                  799 \200
+## 29              \n                                    ZR LADY 8.0\n                                  899 \200
+## 30              \n                                    ZR LADY 6.0\n                                  699 \200
+## 31              \n                                    ZR LADY 7.0\n                                  649 \200
+## 32              \n                                    ZR LADY 8.0\n                                  849 \200
+## 33           \n                                    SLUSH Frameset\n                                  299 \200
+##                                                                                            url
+## 1                    https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-80-2021/
+## 2                    https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-90-2021/
+## 3                   https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-100-2021/
+## 4                https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-100-ea-2021/
+## 5                   https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-100-2020/
+## 6                https://www.radon-bikes.de/mountainbike/hardtail/jealous/jealous-100-ea-2020/
+## 7  https://www.radon-bikes.de/mountainbike/hardtail/jealous-frameset/jealous-superlite-1x-100/
+## 8              https://www.radon-bikes.de/mountainbike/hardtail/jealous-al/jealous-al-80-2021/
+## 9           https://www.radon-bikes.de/mountainbike/hardtail/jealous-al/jealous-al-80-hd-2021/
+## 10                           https://www.radon-bikes.de/mountainbike/hardtail/jealous-al/1x12/
+## 11            https://www.radon-bikes.de/mountainbike/hardtail/jealous-al/jealous-al-100-2021/
+## 12              https://www.radon-bikes.de/mountainbike/hardtail/jealous-al/jealous-al-100-sl/
+## 13                   https://www.radon-bikes.de/mountainbike/hardtail/cragger/cragger-70-2021/
+## 14                   https://www.radon-bikes.de/mountainbike/hardtail/cragger/cragger-80-2021/
+## 15                   https://www.radon-bikes.de/mountainbike/hardtail/cragger/cragger-80-2020/
+## 16               https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-275-70-2021/
+## 17                https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-29-70-2021/
+## 18               https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-275-80-2021/
+## 19                https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-29-80-2021/
+## 20               https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-275-60-2020/
+## 21                https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-29-60-2020/
+## 22               https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-275-70-2020/
+## 23                https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-29-70-2020/
+## 24               https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-275-80-2020/
+## 25                https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-29-80-2020/
+## 26              https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-275-nx1-2020/
+## 27               https://www.radon-bikes.de/mountainbike/hardtail/zr-team/zr-team-29-nx1-2020/
+## 28                   https://www.radon-bikes.de/mountainbike/hardtail/zr-lady/zr-lady-70-2021/
+## 29                   https://www.radon-bikes.de/mountainbike/hardtail/zr-lady/zr-lady-80-2021/
+## 30                   https://www.radon-bikes.de/mountainbike/hardtail/zr-lady/zr-lady-60-2020/
+## 31                   https://www.radon-bikes.de/mountainbike/hardtail/zr-lady/zr-lady-70-2020/
+## 32                   https://www.radon-bikes.de/mountainbike/hardtail/zr-lady/zr-lady-80-2020/
+## 33                 https://www.radon-bikes.de/mountainbike/hardtail/slush/slush-frameset-2020/</code></pre>
+</div>
+</div>
+</div>
+<div id="data-wrangling" class="section level1">
+<h1><span class="header-section-number">3</span> Data Wrangling</h1>
+<div id="adding-the-code-3" class="section level2">
+<h2><span class="header-section-number">3.1</span> Adding the Code</h2>
+<p>library(tidyverse)</p>
+<p>library(vroom)</p>
+<p>library(magrittr)</p>
+<p>library(lubridate)</p>
+<p>library(data.table)</p>
+<p>patent &lt;- “G:/Data Science Project-R/DS_101/02_data_wrangling/patent.tsv”</p>
+<p>patent_tbl &lt;- fread(patent)</p>
+<p>setnames(patent_tbl, “id”, “patent_id”)</p>
+<p>patent_tbl_view &lt;- patent_tbl[1:2]</p>
+<p>assignee &lt;- “G:/Data Science Project-R/DS_101/02_data_wrangling/assignee.tsv”</p>
+<p>assignee_tbl &lt;- fread(assignee)</p>
+<p>setnames(assignee_tbl, “id”, “assignee_id”)</p>
+<p>patent_assignee &lt;- “G:/Data Science Project-R/DS_101/02_data_wrangling/patent_assignee.tsv”</p>
+<p>patent_assignee_tbl&lt;- fread(patent_assignee)</p>
+<p>uspc &lt;- “G:/Data Science Project-R/DS_101/02_data_wrangling/uspc.tsv”</p>
+<p>uspc_tbl&lt;- fread(uspc)</p>
+<p>setnames(uspc_tbl, “uuid”, “assignee_id”)</p>
+</div>
+<div id="challenge-1-2" class="section level2">
+<h2><span class="header-section-number">3.2</span> Challenge 1</h2>
+<p>Patent Dominance: What US company / corporation has the most patents? List the 10 US companies with the most assigned/granted patents.</p>
+<div id="adding-the-code-4" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Adding the Code</h3>
+<p>combined_data_assignee &lt;- merge(assignee_tbl, patent_assignee_tbl, by=‘assignee_id’)</p>
+<p>na.omit(combined_data_assignee, cols=“organization”)</p>
+<p>combined_data_assignee [, .N, by = organization][order(-N)] %&gt;% head(1)%&gt;%na.omit()</p>
+<p>——-&gt;</p>
+<p>organization N</p>
+<p>1: International Business Machines Corporation 139091</p>
+<p>combined_data_assignee [, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(11)</p>
+<p>——-&gt;</p>
+<p>organization N</p>
+<p>1: International Business Machines Corporation 139091</p>
+<p>2: Samsung Electronics Co., Ltd. 93561</p>
+<p>3: Canon Kabushiki Kaisha 75909</p>
+<p>4: Sony Corporation 54342</p>
+<p>5: Kabushiki Kaisha Toshiba 49442</p>
+<p>6: General Electric Company 47121</p>
+<p>7: Hitachi, Ltd. 45374</p>
+<p>8: Intel Corporation 42156</p>
+<p>9: Fujitsu Limited 37196</p>
+<p>10: Hewlett-Packard Development Company, L.P. 35572</p>
+</div>
+</div>
+<div id="challenge-2-2" class="section level2">
+<h2><span class="header-section-number">3.3</span> Challenge 2</h2>
+<p>Recent patent acitivity: What US company had the most patents granted in 2019? List the top 10 companies with the most new granted patents for 2019.</p>
+<div id="adding-the-code-5" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Adding the Code</h3>
+<p>combined_data_patent &lt;- merge(combined_data_assignee,patent_tbl , by=‘patent_id’)</p>
+<p>reshaped_patent_tbl &lt;- combined_data_patent[,.(patent_id, country, date, organization,kind)]</p>
+<p>#What US company had the most patents granted in 2019?</p>
+<p>reshaped_patent_tbl [lubridate::year(date) == 2019, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(1)</p>
+<p>——-&gt;</p>
+<pre><code>          organization                      N
+          </code></pre>
+<p>1: International Business Machines Corporation 9265</p>
+<p>#List the top 10 companies with the most new granted patents for 2019.</p>
+<p>reshaped_patent_tbl [lubridate::year(date) == 2019 &amp; kind==“B1”, .N, by = organization][order(-N)]%&gt;%na.omit() %&gt;% head(10)</p>
+<p>——-&gt;</p>
+<pre><code>                         organization            N
+                         </code></pre>
+<p>1: Amazon Technologies, Inc. 1766</p>
+<p>2: EMC IP Holding Company LLC 719</p>
+<p>3: Google Inc. 550</p>
+<p>4: International Business Machines Corporation 515</p>
+<p>5: Capital One Services, LLC 386</p>
+<p>6: Apple Inc. 299</p>
+<p>7: 276</p>
+<p>8: STATE FARM MUTUAL AUTOMOBILE INSURANCE COMPANY 242</p>
+<p>9: Facebook, Inc. 239</p>
+<p>10: Pioneer Hi-Bred International, Inc. 233</p>
+</div>
+</div>
+<div id="challenge-3" class="section level2">
+<h2><span class="header-section-number">3.4</span> Challenge 3</h2>
+<p>Innovation in Tech: What is the most innovative tech sector? For the top 10 companies (worldwide) with the most patents, what are the top 5 USPTO tech main classes?</p>
+<div id="adding-the-code-6" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Adding the Code</h3>
+<p>combined_data_uspc &lt;- merge(combined_data_assignee,uspc_tbl , by=‘patent_id’)</p>
+<p>reshaped_uspc_tbl &lt;- combined_data_uspc[,.(patent_id, type, organization,mainclass_id,subclass_id)]</p>
+<p>#What is the most innovative tech sector?</p>
+<p>patent_tbl[, .N, by = type][order(-N)] %&gt;% head(1)</p>
+<p>——-&gt;</p>
+<pre><code> type       N
+ </code></pre>
+<p>1: utility 6735315</p>
+<p>#What are the top 5 USPTO main classes of their patents?</p>
+<p>reshaped_uspc_tbl[organization==“International Business Machines Corporation”, .N, by = mainclass_id][order(-N)]%&gt;% head(5)</p>
+<p>——-&gt;</p>
+<p>mainclass_id N</p>
+<p>1: 257 21754</p>
+<p>2: 709 16834</p>
+<p>3: 438 16596</p>
+<p>4: 707 16147</p>
+<p>5: 711 12829</p>
+</div>
+</div>
+</div>
+<div id="data-visualization" class="section level1">
+<h1><span class="header-section-number">4</span> Data Visualization</h1>
+<div id="challenge-1-3" class="section level2">
+<h2><span class="header-section-number">4.1</span> Challenge 1</h2>
+<p>Map the time course of the cumulative Covid-19 cases!</p>
+<div id="adding-the-code-7" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Adding the Code</h3>
+<pre class="r"><code>library(tidyverse)
+library(ggthemes)
+covid_data_tbl &lt;- read_csv(&quot;https://opendata.ecdc.europa.eu/covid19/casedistribution/csv&quot;)
+
+covid_data_tbl &lt;- covid_data_tbl %&gt;%
+  rename(cumulative_cases = `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000`, continent=continentExp, country=countriesAndTerritories)
+
+
+covid_data_tbl_reshaped &lt;- covid_data_tbl %&gt;%
+  
+  select(month,country ,continent, cases, deaths, year) %&gt;%
+  filter((country == &quot;United_States_of_America&quot; | 
+           country == &quot;Germany&quot; | 
+           country == &quot;United_Kingdom&quot; | 
+           country == &quot;France&quot; | 
+           country == &quot;Spain&quot;) &amp; year == &quot;2020&quot;)%&gt;%
+  # Group by category and summarize
+  group_by(country, month, year) %&gt;%
+  summarise(total_case = sum(cases)) %&gt;%
+  ungroup()%&gt;%
+  mutate(month=lubridate::month(month,label = TRUE,abbr = TRUE))
+
+
+cumulative_case_tbl &lt;- covid_data_tbl_reshaped %&gt;% mutate(cum_sum=cumsum(total_case))
+
+
+cumulative_case_tbl %&gt;%
+  
+  ggplot(aes(month, cum_sum, group=country, color = country)) +
+  
+  geom_line(size=.5) +
+  scale_y_continuous(labels = scales::dollar_format(scale  = 1/1e6, 
+                                                    prefix = &quot;&quot;, 
+                                                    suffix = &quot;M â‚¬&quot;))+
+
+  labs(
+    title = &quot;COVID-19 confirmed cases worldwide&quot;,
+    subtitle = &quot;As of 01/12/2020, USA has more cases than any other country&quot;,
+    x = &quot;Year 2020&quot;,
+    y = &quot;Cumulative Cases&quot;,
+    color = &quot;Country&quot;
+  )+  
+  theme_minimal() +
+  theme(legend.position  = &quot;right&quot;, 
+        legend.direction = &quot;vertical&quot;,
+        axis.text.x = element_text(angle = 45))</code></pre>
+<p><img src="journal_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+</div>
+<div id="challenge-2-3" class="section level2">
+<h2><span class="header-section-number">4.2</span> Challenge 2</h2>
+<p>Visualize the distribution of the mortality rate (deaths / population) with geom_map().</p>
+<div id="adding-the-code-8" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Adding the Code</h3>
+<pre class="r"><code>library(tidyverse)
+library(ggthemes)
+covid_data_tbl &lt;- read_csv(&quot;https://opendata.ecdc.europa.eu/covid19/casedistribution/csv&quot;)
+
+covid_data_tbl &lt;- covid_data_tbl %&gt;%
+  rename(cumulative_cases = `Cumulative_number_for_14_days_of_COVID-19_cases_per_100000`, continent=continentExp, country=countriesAndTerritories)
+
+##### challenge 2
+world &lt;- map_data(&quot;world&quot;)
+
+covid_data_tbl_reshaped &lt;- covid_data_tbl%&gt;%
+  filter(year==2020)
+
+
+covid_data_tbl_reshaped  &lt;- covid_data_tbl_reshaped  %&gt;% 
+  mutate(country = case_when(
+    country == &quot;United_Kingdom&quot; ~ &quot;UK&quot;,
+    country == &quot;United_States_of_America&quot; ~ &quot;USA&quot;,
+    country == &quot;Czechia&quot; ~ &quot;Czech Republic&quot;,
+    country == &quot;Bonaire, Saint Eustatius and Saba&quot; ~ &quot;Bonaire&quot;,
+    TRUE ~ country
+    
+  ))
+
+covid_data_tbl_reshaped &lt;- covid_data_tbl_reshaped %&gt;%
+  group_by(country)%&gt;%
+  summarise(total_death = sum(deaths),population = mean(popData2019))
+
+
+covid_data_tbl_reshaped  &lt;- covid_data_tbl_reshaped  %&gt;%
+  mutate(country_new = str_replace_all(country, &quot;_&quot;, &quot; &quot;) , Mortality_Rate = (total_death / population) * 100)
+
+world &lt;- dplyr::left_join(world, covid_data_tbl_reshaped , by=c(&quot;region&quot; = &quot;country_new&quot;))
+
+
+world %&gt;%
+  ggplot(aes(map_id = region)) +
+  geom_map(aes(fill = Mortality_Rate), map = world, color = &quot;white&quot;) +
+  expand_limits(x = world$long, y = world$lat)+
+  theme_minimal() </code></pre>
+<p><img src="journal_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
